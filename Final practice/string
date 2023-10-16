@@ -1,0 +1,4 @@
+x = "python"
+y=x*10
+print(type(y))
+

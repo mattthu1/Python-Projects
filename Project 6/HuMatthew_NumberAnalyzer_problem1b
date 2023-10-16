@@ -1,0 +1,127 @@
+#Problem 1b: Number Analyzer
+
+#creating statemnt if it is prime
+
+def is_prime(n):
+
+    1
+    """Returns True if n is prime, False otherwise."""
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+#creating statemnt if it is perfect
+
+
+def is_perfect(n):
+
+
+    """Returns True if n is perfect, False otherwise."""
+    if n < 6:
+        return False
+    divisors_sum = sum(i for i in range(1, n) if n % i == 0)
+    return divisors_sum == n
+
+#creating statemnt if it is abundant
+
+
+def is_abundant(n):
+    """Returns True if n is abundant, False otherwise."""
+    divisors_sum = sum(i for i in range(1, n) if n % i == 0)
+    return divisors_sum > n
+
+
+#this prints the numbers with hashes before and after
+
+def print_numbers(numbers):
+    """Prints a list of numbers, 10 per line."""
+    print("##############")
+    for i in range(len(numbers)):
+        if i % 10 == 0 and i > 0:
+            print()
+        print(numbers[i])
+    print("##############")
+
+
+
+#creatingthe main menu and all the options that it gives the user
+while True:
+
+    print("Main Menu")
+    print("1 - Find all prime numbers within a given range")
+    print("2 - Find all perfect numbers within a given range")
+    print("3 - Find all abundant numbers within a given range")
+    print("4 - Chart all even, odd, prime, perfect and abundant numbers within a given range")
+    print("5 - Quit")
+    choice = input("Your choice: ")
+    
+    
+    if choice == "1":
+        start = int(input("Enter starting number (positive only): "))
+        end = int(input("Enter ending number (positive only): "))
+        
+        while start <= 0:
+            print("Both numbers should be positive. Please try again.\n")
+            start = int(input("Enter starting number (positive only): "))
+        while end <= 0:
+            print("Both numbers should be positive. Please try again.\n")
+            end = int(input("Enter ending number (positive only): "))
+        while end < start:
+            print("Ending number should be greater than or equal to the starting number. Please try again.\n")
+            end = int(input("Enter ending number (positive only): "))
+
+        
+        primes = [n for n in range(start, end+1) if is_prime(n)]
+        print(f"All prime numbers between {start} and {end}")
+        print_numbers(primes)
+    
+    elif choice == "2":
+        start = int(input("Enter starting number (positive only): "))
+        end = int(input("Enter ending number (positive only): "))
+        
+        while start <= 0:
+            print("Both numbers should be positive. Please try again.\n")
+            start = int(input("Enter starting number (positive only): "))
+        while end <= 0:
+            print("Both numbers should be positive. Please try again.\n")
+            end = int(input("Enter ending number (positive only): "))
+        while end < start:
+            print("Ending number should be greater than or equal to the starting number. Please try again.\n")
+            end = int(input("Enter ending number (positive only): "))
+        
+        perfects = [n for n in range(start, end+1) if is_perfect(n)]
+        print(f"All perfect numbers between {start} and {end}")
+        print_numbers(perfects)
+   
+    elif choice == "3":
+        start = int(input("Enter starting number (positive only): "))
+        end = int(input("Enter ending number (positive only): "))
+        
+        while start <= 0:
+            print("Both numbers should be positive. Please try again.\n")
+            start = int(input("Enter starting number (positive only): "))
+        while end <= 0:
+            print("Both numbers should be positive. Please try again.\n")
+            end = int(input("Enter ending number (positive only): "))
+        while end < start:
+            print("Ending number should be greater than or equal to the starting number. Please try again.\n")
+            end = int(input("Enter ending number (positive only): "))
+        
+        abundants = [n for n in range(start, end+1) if is_abundant(n)]
+        print(f"All abundant numbers between {start} and {end}")
+        print_numbers(abundants)
+    
+    
+    elif choice == "5":
+
+
+        print("Goodbye!")
+        break
+   
+   #creating something if it doesnt understand 
+   
+    else:
+        print("I don't understand that ...")

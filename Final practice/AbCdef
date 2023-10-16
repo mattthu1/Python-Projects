@@ -1,0 +1,5 @@
+for c in "AbCdEf":
+    if c.isupper():
+        print(chr(ord(c)+32)+'#',end='')
+    else:
+        print(chr(ord(c)-32)+"@",end='')

@@ -1,0 +1,102 @@
+#Part 1a: Number Analyzer
+
+def is_even(n):
+    return n % 2 == 0
+
+
+def is_odd(n):
+    return not is_even(n)
+
+#creating the statemnt if it is prime
+
+
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+#creating the statemnt if it is perfect
+
+
+def is_perfect(n):
+    if n < 6:
+        return False
+    divisors = [1]
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            divisors.extend([i, n//i])
+    divisors = list(set(divisors))
+    return sum(divisors) == n
+
+#creating the statemnt if it is abundant
+
+def is_abundant(n):
+    if n < 12:
+        return False
+    divisors = [1]
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            divisors.extend([i, n//i])
+    divisors = list(set(divisors))
+    return sum(divisors) > n
+
+#creating loop in case the number is negative
+
+while True:
+
+    start = input("Enter starting number: ")
+
+
+    if start.isdigit() and int(start) > 0:
+        start = int(start)
+        break
+
+    else:
+        print("Invalid, try again")
+
+
+#creating while loop in case the endingnumber is lower than the starting number or negative
+
+while True:
+
+    end = input("Enter ending number: ")
+
+    if end.isdigit() and int(end) > start:
+        end = int(end)
+        break
+
+    else:
+        print("Invalid, try again")
+
+for n in range(start, end+1):
+
+
+
+    #creating the if statemnts for what is even, what is odd, what is prime, what is abundant,  and what is perfect
+
+    output = f"{n} is ..."
+
+    if is_odd(n):
+
+        output += " odd"
+    else:
+
+        output += " even"
+
+    if is_prime(n):
+
+        output += " prime"
+
+    if is_perfect(n):
+
+        output += " perfect"
+
+    elif is_abundant(n):
+
+        output += " abundant"
+        
+    print(output)
+

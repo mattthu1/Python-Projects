@@ -1,0 +1,4 @@
+foobar,abcABC123
+barfoo,xyz123ABC
+snorlax,XYZ!@#$
+caterpie,Xyz123
